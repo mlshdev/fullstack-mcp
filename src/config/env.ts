@@ -9,6 +9,7 @@ const envSchema = z.object({
   REDIS_URL: z.string().url(),
   BROWSERLESS_URL: z.string(),
   OPENROUTER_API_KEY: z.string().min(1),
+  MCP_API_KEY: z.string().min(1),
 
   CRAWL_CONCURRENCY: z.coerce.number().int().min(1).default(3),
   CRAWL_MAX_PAGES: z.coerce.number().int().min(1).default(100),
