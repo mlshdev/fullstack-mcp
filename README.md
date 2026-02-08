@@ -129,7 +129,7 @@ This starts 4 services:
 | `server` | `ghcr.io/mlshdev/fullstack-mcp:latest` | MCP server on `:3000` |
 | `pgvector` | `pgvector/pgvector:pg18-trixie` | PostgreSQL with vector extensions |
 | `redis-mcp` | `redis:8.6-rc1-trixie` | Caching, rate limiting, job tracking |
-| `browserless` | `browserless/chrome:latest` | Headless Chrome for crawling |
+| `browserless` | `browserless/chromium:latest` | Headless Chrome for crawling |
 
 ### 3. Create an API key
 
