@@ -9,7 +9,7 @@ services:
       LOG_LEVEL: info
       DATABASE_URL: postgresql://mcp:mcp_secret@postgres:5432/mcp_docs
       REDIS_URL: redis://redis:6379
-      BROWSERLESS_URL: ws://browserless:3000
+      BROWSERLESS_URL: ws://browserless:3000/chromium
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
       CRAWL_CONCURRENCY: 3
       CRAWL_MAX_PAGES: 100
@@ -67,13 +67,13 @@ services:
     restart: unless-stopped
 
   browserless:
-    image: docker.io/browserless/chrome:latest
+    image: ghcr.io/browserless/chromium:latest
     environment:
-      MAX_CONCURRENT_SESSIONS: 5
+      CONCURRENT: 5
       TIMEOUT: 60000
     healthcheck:
       test:
-        ["CMD-SHELL", "wget -qO- http://localhost:3000/json/version || exit 1"]
+        ["CMD-SHELL", "wget -qO- http://localhost:3000/chromium/json/version || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
